@@ -26,7 +26,8 @@ namespace MainApp
 
         private void Sheet_SelectionChange(Excel.Range Target)
         {
-            var position = PositionHelper.GetCellPosition(Target);
+            var positionHelper = new PositionHelper();
+            positionHelper.ParseCell(Target);
 
             if (_suggestionForm == null)
             {
@@ -35,12 +36,11 @@ namespace MainApp
                 //_suggestionForm.BringToFront();
             }
 
+            _suggestionForm.Left = positionHelper.X;
+            _suggestionForm.Top = positionHelper.Y;
 
-            _suggestionForm.Left = position.X;
-            _suggestionForm.Top = position.Y;
-
-            _suggestionForm.Width = 100;
-            _suggestionForm.Height = 50;
+            _suggestionForm.Width = positionHelper.Width;
+            _suggestionForm.Height = positionHelper.Height;
 
             //_suggestionForm.TopLevel = false;
             //_suggestionForm.TopLevel = true;
