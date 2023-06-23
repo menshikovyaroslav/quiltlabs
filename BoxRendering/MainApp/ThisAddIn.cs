@@ -8,6 +8,7 @@ using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
 using System.Windows.Forms;
 using MainApp.Classes;
+using MainApp.Forms;
 
 namespace MainApp
 {
@@ -23,7 +24,11 @@ namespace MainApp
         {
             var position = PositionHelper.GetCellPosition(Target);
 
-            MessageBox.Show($"{position.X}, {position.Y}");
+            var form = new SuggestionForm(123.456);
+            form.Text = "Hello";
+            form.Show();
+
+            //MessageBox.Show($"{position.X}, {position.Y}");
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
