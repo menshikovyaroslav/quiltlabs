@@ -56,7 +56,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "SuggestionForm";
-            this.TopMost = true;
             this.ResumeLayout(false);
 
         }

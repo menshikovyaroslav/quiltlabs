@@ -9,6 +9,8 @@ using Microsoft.Office.Tools.Excel;
 using System.Windows.Forms;
 using MainApp.Classes;
 using MainApp.Forms;
+using Microsoft.Office.Tools;
+using System.Runtime.InteropServices;
 
 namespace MainApp
 {
@@ -25,12 +27,12 @@ namespace MainApp
             var position = PositionHelper.GetCellPosition(Target);
 
             var form = new SuggestionForm(123.456);
-            form.Text = "Hello";
             form.Left = position.X;
             form.Top = position.Y;
 
             form.Width = 100;
             form.Height = 50;
+
             form.Show();
 
             //MessageBox.Show($"{position.X}, {position.Y}");
