@@ -211,7 +211,13 @@
     <ManifestKeyFile>MainApp_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>619DFF5816627D764AA2341D14C999A34790377D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>43AF421A65A3D15DC6DFC7271D1353C83D7A4B49</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MainApp_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
