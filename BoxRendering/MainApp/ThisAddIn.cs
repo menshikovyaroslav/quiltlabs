@@ -6,49 +6,24 @@ using System.Xml.Linq;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
+using System.Windows.Forms;
+using MainApp.Classes;
 
 namespace MainApp
 {
     public partial class ThisAddIn
     {
-        /// <summary>
-        /// Get Application Object
-        /// </summary>
-        /// <returns></returns>
-        public Excel.Application GetApplication()
-        {
-            return Application;
-        }
-
-        /// <summary>
-        /// Get Active Work Book
-        /// </summary>
-        /// <returns></returns>
-        public Excel.Workbook GetActiveWorkBook()
-        {
-            return (Excel.Workbook)Application.ActiveWorkbook;
-        }
-
-        /// <summary>
-        /// Get Active Work Sheet
-        /// </summary>
-        /// <returns></returns>
-        public Excel.Worksheet GetActiveWorksheet()
-        {
-            return (Excel.Worksheet)Application.ActiveSheet;
-        }
-        
-        /// <summary>
-        /// Get Active Cell
-        /// </summary>
-        /// <returns></returns>
-        public Excel.Range GetActiveCell()
-        {
-            return (Excel.Range)Application.Selection;
-        }
-
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            var sheet = GetActiveWorksheet();
+            sheet.SelectionChange += Sheet_SelectionChange;
+        }
+
+        private void Sheet_SelectionChange(Excel.Range Target)
+        {
+            var position = PositionHelper.GetCellPosition(Target);
+
+            MessageBox.Show($"{position.X}, {position.Y}");
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
