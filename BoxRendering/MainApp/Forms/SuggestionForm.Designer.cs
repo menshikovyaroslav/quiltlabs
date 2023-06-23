@@ -33,13 +33,14 @@
             // 
             // figureLabel
             // 
-            this.figureLabel.AutoSize = true;
+            this.figureLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.figureLabel.ForeColor = System.Drawing.Color.Blue;
-            this.figureLabel.Location = new System.Drawing.Point(359, 212);
+            this.figureLabel.Location = new System.Drawing.Point(0, 0);
             this.figureLabel.Name = "figureLabel";
-            this.figureLabel.Size = new System.Drawing.Size(46, 13);
+            this.figureLabel.Size = new System.Drawing.Size(800, 450);
             this.figureLabel.TabIndex = 0;
             this.figureLabel.Text = "123.456";
+            this.figureLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SuggestionForm
             // 
@@ -57,7 +58,6 @@
             this.Text = "SuggestionForm";
             this.TopMost = true;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

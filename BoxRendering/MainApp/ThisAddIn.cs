@@ -26,6 +26,11 @@ namespace MainApp
 
             var form = new SuggestionForm(123.456);
             form.Text = "Hello";
+            form.Left = position.X;
+            form.Top = position.Y;
+
+            form.Width = 100;
+            form.Height = 50;
             form.Show();
 
             //MessageBox.Show($"{position.X}, {position.Y}");
