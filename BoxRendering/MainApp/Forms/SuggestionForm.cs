@@ -12,12 +12,19 @@ namespace MainApp.Forms
 {
     public partial class SuggestionForm : Form
     {
+        /// <summary>
+        /// Create form using a figure
+        /// ToDo: change figure if it needs
+        /// </summary>
+        /// <param name="inputFigure">Convey figure into the suggestion form</param>
         public SuggestionForm(double inputFigure)
         {
             InitializeComponent();
 
             figureLabel.Text = inputFigure.ToString();
         }
+
+        #region Window preferences
 
         private const int WM_MOUSEACTIVATE = 0x0021, MA_NOACTIVATE = 0x0003;
 
@@ -46,9 +53,6 @@ namespace MainApp.Forms
             get { return true; }
         }
 
-        private void SuggestionForm_Activated(object sender, EventArgs e)
-        {
-            
-        }
+        #endregion
     }
 }

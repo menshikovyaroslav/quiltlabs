@@ -11,6 +11,7 @@ using MainApp.Classes;
 using MainApp.Forms;
 using Microsoft.Office.Tools;
 using System.Runtime.InteropServices;
+using System.Net;
 
 namespace MainApp
 {
@@ -41,14 +42,6 @@ namespace MainApp
 
             _suggestionForm.Width = positionHelper.Width;
             _suggestionForm.Height = positionHelper.Height;
-
-            //_suggestionForm.TopLevel = false;
-            //_suggestionForm.TopLevel = true;
-
-            //_suggestionForm.BringToFront();
-
-
-            //MessageBox.Show($"{position.X}, {position.Y}");
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)

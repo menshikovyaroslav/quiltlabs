@@ -1,13 +1,12 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MainApp.Classes
 {
+    /// <summary>
+    /// This class helps to define coordinates and a size of the suggestion form
+    /// </summary>
     internal class PositionHelper
     {
         [DllImport("gdi32.dll")]
@@ -19,11 +18,31 @@ namespace MainApp.Classes
         private const int LOGPIXELSX = 88;
         private const int LOGPIXELSY = 90;
 
+        /// <summary>
+        /// X coord of a window
+        /// </summary>
         public int X { get; set; }
+
+        /// <summary>
+        /// Y coord of a window
+        /// </summary>
         public int Y { get; set; }
+
+        /// <summary>
+        /// Window width
+        /// </summary>
         public int Width { get; set; }
+
+        /// <summary>
+        /// Window height
+        /// </summary>
         public int Height { get; set; }
 
+
+        /// <summary>
+        /// Find all the necessary data by cell info
+        /// </summary>
+        /// <param name="range"></param>
         public void ParseCell(Range range)
         {
             Worksheet ws = range.Worksheet;
@@ -43,6 +62,7 @@ namespace MainApp.Classes
             // Coordinates of next column 
             var x2 = Convert.ToInt32(x1 + (((Range)(ws.Columns)[range.Column]).Width) * zoomRatio * px / pointsPerInch);
 
+            // find width
             var width = x2 - x1;
 
             var y1 = Functions.Application.ActiveWindow.PointsToScreenPixelsY(0);
@@ -51,6 +71,7 @@ namespace MainApp.Classes
             // Coordinates of next row 
             var y2 = Convert.ToInt32(y1 + (((Range)(ws.Rows)[range.Row]).Height) * zoomRatio * py / pointsPerInch);
 
+            // find height
             var height = y2 - y1;
 
             Marshal.ReleaseComObject(ws);
