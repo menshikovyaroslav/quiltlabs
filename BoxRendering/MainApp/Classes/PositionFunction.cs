@@ -56,7 +56,7 @@ namespace MainApp.Classes
             Marshal.ReleaseComObject(ws);
             Marshal.ReleaseComObject(range);
 
-            X = x1 + width;
+            X = x1 + width + 1;
             Y = y1 - 2;
             Width = width;
             Height = height + 4;
