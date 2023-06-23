@@ -19,6 +19,17 @@ namespace MainApp.Forms
             figureLabel.Text = inputFigure.ToString();
         }
 
+        private const int WM_MOUSEACTIVATE = 0x0021, MA_NOACTIVATE = 0x0003;
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_MOUSEACTIVATE)
+            {
+                m.Result = (IntPtr)MA_NOACTIVATE;
+                return;
+            }
+            base.WndProc(ref m);
+        }
 
         protected override CreateParams CreateParams
         {
@@ -33,6 +44,11 @@ namespace MainApp.Forms
         protected override bool ShowWithoutActivation
         {
             get { return true; }
+        }
+
+        private void SuggestionForm_Activated(object sender, EventArgs e)
+        {
+            
         }
     }
 }

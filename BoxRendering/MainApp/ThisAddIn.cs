@@ -22,18 +22,31 @@ namespace MainApp
             sheet.SelectionChange += Sheet_SelectionChange;
         }
 
+        SuggestionForm _suggestionForm;
+
         private void Sheet_SelectionChange(Excel.Range Target)
         {
             var position = PositionHelper.GetCellPosition(Target);
 
-            var form = new SuggestionForm(123.456);
-            form.Left = position.X;
-            form.Top = position.Y;
+            if (_suggestionForm == null)
+            {
+                _suggestionForm = new SuggestionForm(123.456);
+                _suggestionForm.Show();
+                //_suggestionForm.BringToFront();
+            }
 
-            form.Width = 100;
-            form.Height = 50;
 
-            form.Show();
+            _suggestionForm.Left = position.X;
+            _suggestionForm.Top = position.Y;
+
+            _suggestionForm.Width = 100;
+            _suggestionForm.Height = 50;
+
+            //_suggestionForm.TopLevel = false;
+            //_suggestionForm.TopLevel = true;
+
+            //_suggestionForm.BringToFront();
+
 
             //MessageBox.Show($"{position.X}, {position.Y}");
         }
@@ -53,7 +66,7 @@ namespace MainApp
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
         }
-        
+
         #endregion
     }
 }
